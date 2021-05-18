@@ -25,4 +25,4 @@ stages:
         containerRegistry: 'azureregistry'
         repository: 'test'
         command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
+        Dockerfile: '.devcontainer/Dockerfile'
