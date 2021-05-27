@@ -9,8 +9,6 @@ on:
 jobs:
 
   build:
-    context: ./.devcontainer
-    dockerfile: Dockerfile
     runs-on: ubuntu-latest
 
     steps:
