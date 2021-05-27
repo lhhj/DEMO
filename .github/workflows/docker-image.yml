@@ -28,4 +28,4 @@ jobs:
         image: poi
         git_access_token: ${{ secrets.git_access_token }}
         folder: src/poi
-        dockerfile: ../../dockerfiles/Dockerfile_3
+        dockerfile: .devcontainer/Dockerfile
