@@ -12,6 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file .devcontainer/Dockerfile --tag my-image-name:$(date +%s)
+    
     - uses: azure/docker-login@v1
       with:
         #login-server: ${{ secrets.ACRSERVER }}
@@ -20,6 +24,4 @@ jobs:
         username: SCIDEMOACR
         #password: ${{ secrets.ACRPASS }}
         password: TRMTpbms4SddkbYAAFfL=IU/b3EoE9hY
-    
-    - run: docker build . --file .devcontainer/Dockerfile --tag my-image-name:$(date +%s)
     - run: docker image push ${{secrets.ACRSERVER}}/SCI/my-image-name:$(date +%s)
