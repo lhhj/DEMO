@@ -24,4 +24,4 @@ jobs:
         username: SCIDEMOACR
         #password: ${{ secrets.ACRPASS }}
         password: TRMTpbms4SddkbYAAFfL=IU/b3EoE9hY
-    - run: docker image push ${{secrets.ACRSERVER}}/SCI/my-image-name:$(date +%s)
+    - run: docker image push ${{secrets.ACRSERVER}}/sci/my-image-name:$(date +%s)
