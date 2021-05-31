@@ -17,7 +17,8 @@ jobs:
         login-server: ${{ secrets.ACRSERVER }}
         #username: ${{secrets.ACRUSERNAME}}
         username: SCIDEMOACR
-        password: ${{ secrets.ACRPASS }}
+        #password: ${{ secrets.ACRPASS }}
+        password: TRMTpbms4SddkbYAAFfL=IU/b3EoE9hY
     
     - run: docker build . --file .devcontainer/Dockerfile --tag my-image-name:$(date +%s)
     - run: docker image push ${{secrets.ACRSERVER}}/SCI/my-image-name:$(date +%s)
