@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: azure/docker-login@v1
+    - uses: azure/docker-login@v2
       with:
         login-server: ${{secrets.ACRSERVER}}
         username: ${{secrets.ACRUSERNAME}}
