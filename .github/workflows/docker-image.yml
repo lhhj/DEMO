@@ -24,29 +24,18 @@ jobs:
         username: SCIDEMOACR
         #password: ${{ secrets.ACRPASS }}
         password: TRMTpbms4SddkbYAAFfL=IU/b3EoE9hY
-    - run: docker build . --file .devcontainer/Dockerfile --tag scidemoacr.azurecr.io/my-image-name:$(date +%s)
-    - run: docker push scidemoacr.azurecr.io/my-image-name:$(date +%s)
+    - run: docker build . --file .devcontainer/Dockerfile --tag scidemoacr.azurecr.io/my-image-name:${{ github.sha }}
+    - run: docker push scidemoacr.azurecr.io/my-image-name:${{ github.sha }}
         
     - name: 'Login via Azure CLI'
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         allow-no-subscriptions: true
+    - run: 'hello'
             
-    - name : 'Build and push image'
-    - uses: azure/docker-login@v1
-      with:
-        #login-server: ${{ secrets.ACRSERVER }}
-        login-server: scidemoacr.azurecr.io
-        #username: ${{secrets.ACRUSERNAME}}
-        username: SCIDEMOACR
-        #password: ${{ secrets.ACRPASS }}
-        password: TRMTpbms4SddkbYAAFfL=IU/b3EoE9hY
-    - run: docker build . --file .devcontainer/Dockerfile --tag scidemoacr.azurecr.io/my-image-name:${{ github.sha }}
-    - run: docker push scidemoacr.azurecr.io/my-image-name:${{ github.sha }}
-
     - name: 'Deploy to Azure Container Instances'
-      uses: 'azure/aci-deploy@v1'
+      uses: azure/aci-deploy@v1
       with:
         resource-group: SCIDEMO
         dns-name-label: SCIDEMO${{ github.run_number }}
@@ -56,3 +45,4 @@ jobs:
         registry-password: TRMTpbms4SddkbYAAFfL=IU/b3EoE9hY
         name: aci-sampleapp
         location: 'North Europe'
+    - run: 'hello'
