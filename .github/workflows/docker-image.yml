@@ -12,10 +12,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: azure/docker-login@v2
+    - uses: azure/docker-login@v1
       with:
         login-server: ${{secrets.ACRSERVER}}
-        username: ${{secrets.ACRUSERNAME}}
+        #username: ${{secrets.ACRUSERNAME}}
+        username: SCIDEMOACR
         password: ${{secrets.ACRPASS}}
     
     - run: docker build . --file .devcontainer/Dockerfile --tag my-image-name:$(date +%s)
