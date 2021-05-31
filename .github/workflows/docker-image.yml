@@ -32,7 +32,7 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         allow-no-subscriptions: true
-    - run: 'hello'
+    - run: 'ls'
             
     - name: 'Deploy to Azure Container Instances'
       uses: azure/aci-deploy@v1
@@ -45,4 +45,4 @@ jobs:
         registry-password: TRMTpbms4SddkbYAAFfL=IU/b3EoE9hY
         name: aci-sampleapp
         location: 'North Europe'
-    - run: 'hello'
+    - run: 'ls'
