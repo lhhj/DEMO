@@ -14,7 +14,8 @@ jobs:
     steps:
     - uses: azure/docker-login@v1
       with:
-        login-server: ${{ secrets.ACRSERVER }}
+        #login-server: ${{ secrets.ACRSERVER }}
+        login-server: scidemoacr.azurecr.io
         #username: ${{secrets.ACRUSERNAME}}
         username: SCIDEMOACR
         #password: ${{ secrets.ACRPASS }}
