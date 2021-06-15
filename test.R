@@ -1,7 +1,8 @@
 library(AzureStor)
 
-keystring<-"EnalwGNW0OHCFLrogamszCu129rn5W687VVOebGcGqvyQXic7mongIHPdDoQkNEMVavicRK1vVy82hOOjBLAXg=="
-account_name <- "https://lakefsscidemo.blob.core.windows.net/"
+keystring<-"ts5KGX0irB9tTPCOzo89GC6KJTc0UM9bpUvJLLnP2nyUxZ5sEVokQb1iO3pGdNP6M7l33jQslBaE5cjIBZQUOQ=="
+account_name <- "https://scidemostorage.blob.core.windows.net/"
+
 
 bl_endp_key<- storage_endpoint(account_name,key=keystring)
 cont<-storage_container(bl_endp_key,"datablob")
