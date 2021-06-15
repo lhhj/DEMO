@@ -45,4 +45,5 @@ jobs:
         registry-password: TRMTpbms4SddkbYAAFfL=IU/b3EoE9hY
         name: aci-sampleapp
         location: 'North Europe'
+        command-line: /bin/R test.R
     - run: 'ls'
