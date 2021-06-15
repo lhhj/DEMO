@@ -13,7 +13,7 @@ ARG UPGRADE_PACKAGES="false"
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
-COPY *.sh /tmp/library-scripts/
+COPY .devcontainer/common-debian.sh.sh /tmp/library-scripts/
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && /bin/bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
     && usermod -a -G staff ${USERNAME} \
     && apt-get -y install \
@@ -38,5 +38,5 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && /bin/bash /tmp/li
 RUN R -e "install.packages('methods',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('jsonlite',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('tseries',dependencies=TRUE, repos='http://cran.rstudio.com/')" 
-RUN R -e "install.packages('AzureStore',dependencies=TRUE, repos='http://cran.rstudio.com')"
+RUN R -e "install.packages('AzureStor',dependencies=TRUE)"
 #RUN R -e "install.packages('PerformanceAnalytics',dependencies=TRUE, repos='http://cran.rstudio.com')"
