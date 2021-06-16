@@ -14,7 +14,7 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 RUN mkdir /tmp/library-scripts
-RUN mkdir CustomR
+RUN mkdir /workspaces/DEMP/CustomR
 #RUN find . -name 'common-debian.sh' | xargs -0r cp --verbose -t /tmp/library-scripts/
 ##RUN cp library-scripts/common-debian.sh /tmp/library-scripts/ 2>/dev/null || :
 ##RUN cp .devcontainer/library-scripts/common-debian.sh /tmp/library-scripts/ 2>/dev/null || :
@@ -49,5 +49,5 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #RUN R -e "install.packages('jsonlite',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 #RUN R -e "install.packages('tseries',dependencies=TRUE, repos='http://cran.rstudio.com/')" 
 #RUN R -e "install.packages('AzureStor',dependencies=TRUE)"
-RUN R -e "install.packages('AzureStor',dependencies=TRUE,lib='CustomR')"
+RUN R -e "install.packages('AzureStor',dependencies=TRUE,lib='/workspaces/DEMP/CustomR')"
 #RUN R -e "install.packages('PerformanceAnalytics',dependencies=TRUE, repos='http://cran.rstudio.com')"
