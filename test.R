@@ -1,4 +1,4 @@
-library(AzureStor,lib.loc='CustomR')
+library(AzureStor,lib.loc='../../CustomR')
 
 keystring<-"ts5KGX0irB9tTPCOzo89GC6KJTc0UM9bpUvJLLnP2nyUxZ5sEVokQb1iO3pGdNP6M7l33jQslBaE5cjIBZQUOQ=="
 account_name <- "https://scidemostorage.blob.core.windows.net/"
