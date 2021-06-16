@@ -14,7 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file .devcontainer/Dockerfile --tag scidemoacr.azurecr.io/my-image-name:$(date +%s)
+      run:  'ls'
+      #run: docker build . --file .devcontainer/Dockerfile --tag scidemoacr.azurecr.io/my-image-name:$(date +%s)
 
     - uses: azure/docker-login@v1
       with:
