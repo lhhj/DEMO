@@ -51,5 +51,5 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #RUN R -e "install.packages('jsonlite',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 #RUN R -e "install.packages('tseries',dependencies=TRUE, repos='http://cran.rstudio.com/')" 
 #RUN R -e "install.packages('AzureStor',dependencies=TRUE)"
-RUN R -e "install.packages('AzureStor',dependencies=TRUE,lib='/workspaces/DEMP/CustomR')"
+RUN R -e "install.packages('AzureStor',dependencies=TRUE,lib='/workspaces/DEMO/CustomR')"
 #RUN R -e "install.packages('PerformanceAnalytics',dependencies=TRUE, repos='http://cran.rstudio.com')"
