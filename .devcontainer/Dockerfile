@@ -14,7 +14,9 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 RUN mkdir /tmp/library-scripts
-RUN mkdir /workspaces/DEMO/CustomR
+RUN mkdir workspaces
+RUN mkdir workspaces/DEMO
+RUN mkdir workspaces/DEMO/CustomR
 #RUN find . -name 'common-debian.sh' | xargs -0r cp --verbose -t /tmp/library-scripts/
 ##RUN cp library-scripts/common-debian.sh /tmp/library-scripts/ 2>/dev/null || :
 ##RUN cp .devcontainer/library-scripts/common-debian.sh /tmp/library-scripts/ 2>/dev/null || :
