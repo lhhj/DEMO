@@ -49,5 +49,5 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 RUN R -e "install.packages('AzureStor',dependencies=TRUE,lib='CustomR')"
 #RUN R -e "install.packages('PerformanceAnalytics',dependencies=TRUE, repos='http://cran.rstudio.com')"
 #copy workspace files
-COPY *.R /ScriptsToRun
+COPY *.R /ScriptsToRun/
 CMD ["Rscript","ScriptsToRun/Runner.R","run"]
