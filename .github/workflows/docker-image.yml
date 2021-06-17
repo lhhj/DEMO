@@ -46,4 +46,4 @@ jobs:
         registry-password: TRMTpbms4SddkbYAAFfL=IU/b3EoE9hY
         name: aci-sampleapp
         location: 'North Europe'
-    - run: 'Rscript test.R'
+    - run: 'Rscript Runner.R'
