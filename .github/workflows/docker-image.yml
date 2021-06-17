@@ -45,5 +45,6 @@ jobs:
         registry-username: SCIDEMOACR
         registry-password: TRMTpbms4SddkbYAAFfL=IU/b3EoE9hY
         name: aci-sampleapp
+        restart-policy: Never
         location: 'North Europe'
     - run: 'ls'
