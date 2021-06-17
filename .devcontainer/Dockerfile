@@ -15,14 +15,9 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 RUN mkdir /tmp/library-scripts
 RUN mkdir CustomR
-
-#RUN find . -name 'common-debian.sh' | xargs -0r cp --verbose -t /tmp/library-scripts/
-##RUN cp library-scripts/common-debian.sh /tmp/library-scripts/ 2>/dev/null || :
-##RUN cp .devcontainer/library-scripts/common-debian.sh /tmp/library-scripts/ 2>/dev/null || :
-
-#RUN cp ../common-debian.sh /tmp/library-scripts/ 
+RUN mkdir ScriptsToRun
+#copy debian files 
 COPY *.sh /tmp/library-scripts
-#COPY library-scripts/*.sh /tmp/library-scripts
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && /bin/bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
@@ -45,6 +40,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #    && export DEBIAN_FRONTEND=noninteractive \
 #    && apt-get -y install --no-install-recommends <your-package-list-here>
 
+
 #Install packages
 #RUN R -e "install.packages('methods',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 #RUN R -e "install.packages('jsonlite',dependencies=TRUE, repos='http://cran.rstudio.com/')"
@@ -52,3 +48,6 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #RUN R -e "install.packages('AzureStor',dependencies=TRUE)"
 RUN R -e "install.packages('AzureStor',dependencies=TRUE,lib='CustomR')"
 #RUN R -e "install.packages('PerformanceAnalytics',dependencies=TRUE, repos='http://cran.rstudio.com')"
+#copy workspace files
+COPY *.R /ScriptsToRun
+CMD ["Rscript","ScriptsToRun/Runner.R","run"]
