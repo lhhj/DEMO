@@ -7,8 +7,8 @@ on:
     branches: [ master ]
 
 jobs:
-
   build:
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -40,6 +40,34 @@ jobs:
       with:
         resource-group: SCIDEMO
         dns-name-label: SCIDEMO${{ github.run_number }}
+        image: scidemoacr.azurecr.io/my-image-name:${{ github.sha }}
+        registry-login-server: scidemoacr.azurecr.io
+        registry-username: SCIDEMOACR
+        registry-password: TRMTpbms4SddkbYAAFfL=IU/b3EoE9hY
+        name: aci-sampleapp
+        restart-policy: Never
+        location: 'North Europe'
+    - run: 'ls'
+
+  staging:
+    needs : build
+    name : Deploy to Test
+    environment: 
+      name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Login via Azure CLI'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        allow-no-subscriptions: true
+    - run: 'ls'
+            
+    - name: 'Deploy to Azure Container Instances'
+      uses: azure/aci-deploy@v1
+      with:
+        resource-group: SCIDEMO
+        dns-name-label: SCIDEMO_TEST${{ github.run_number }}
         image: scidemoacr.azurecr.io/my-image-name:${{ github.sha }}
         registry-login-server: scidemoacr.azurecr.io
         registry-username: SCIDEMOACR
