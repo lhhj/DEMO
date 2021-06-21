@@ -67,12 +67,12 @@ jobs:
       uses: azure/aci-deploy@v1
       with:
         resource-group: SCIDEMO
-        dns-name-label: SCIDEMO_TEST${{ github.run_number }}
+        dns-name-label: SCIDEMOtest${{ github.run_number }}
         image: scidemoacr.azurecr.io/my-image-name:${{ github.sha }}
         registry-login-server: scidemoacr.azurecr.io
         registry-username: SCIDEMOACR
         registry-password: TRMTpbms4SddkbYAAFfL=IU/b3EoE9hY
-        name: aci-sampleapp
+        name: aci-sampletest
         restart-policy: Never
         location: 'North Europe'
     - run: 'ls'
