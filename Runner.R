@@ -14,4 +14,3 @@ print("after get")
 print(dataInput)
 storage_write_csv(dataInput,cont,as.character(Sys.time(), usetz = TRUE))
 print("after write")
-
