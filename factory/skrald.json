@@ -1,0 +1,9 @@
+{
+	"name": "skrald",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "809e785c-89bc-461f-b7c9-470f5935c1d1",
+		"tenantId": "fca7a86c-308d-4875-8485-3654af8f06f9"
+	}
+}
